@@ -1,0 +1,206 @@
+<!doctype html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>E-Trocas - Gerenciar Trocas</title>
+
+    <!-- chamada do ícone da aba do navegador -->
+    <link rel="shortcut icon" href="./images/comuns/rotate-solid.svg" type="image/x-icon">
+
+
+    <!-- Chamada do Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Catamaran:wght@300&display=swap" rel="stylesheet">
+
+
+    <!-- Chamada do Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+
+
+    <!-- chamada da CSS do BS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+
+    <!-- Chamada da nossa CSS -->
+    <link rel="stylesheet" href="./css/styles.css">
+</head>
+
+<body>
+
+    <!-- header da página - podemos ter vários haders na mesma página -->
+    <header class="bg-primary text-light p-5 d-flex justify-content-between">
+        <div>
+            <h3><i class="bi bi-arrow-repeat"></i> E-Trocas</h3>
+            <h5>Gerenciar Trocas</h5>
+        </div>
+
+        <div class="d-flex align-items-center">
+            <figure class="foto me-2">
+                <img src="./images/comuns/user.png" alt="foto do usuário">
+            </figure>
+
+            <div>
+                <h5 id="usuario">Olá Jorge Souza</h5>
+                <h6 id="mensagem">Seja bem-vindo -
+                    <a href="./index-login.html" class="text-light">Sair</a></h6>
+            </div>
+        </div>
+    </header>
+
+    <!-- cadastrar item -->
+    <main class="container my-5">
+
+        <section class="border rounded-1 p-4 my-5">
+            <h2>Cadastrar Troca</h2>
+
+            <form name="cadastrar" id="cadastrar" method="get" action="">
+
+                <div class="row">
+
+                    <div class="col-md-4 my-3">
+                        <label for="titulo" class="form-label">Título</label>
+                        <input type="text" id="titulo" name="titulo" class="form-control" placeholder="Ex: Macacão Azul"
+                            minlength="10" maxlength="50" required>
+                    </div>
+
+                    <div class="col-md-4 my-3">
+                        <label for="produto" class="form-label">Tipo de produto</label>
+                        <select name="produto" id="produto" class="form-select" required>
+                            <option value="0" disabled selected>Selecione seu produto</option>
+                            <option value="1">Roupa</option>
+                            <option value="2">Brinquedo</option>
+                            <option value="3">Fralda</option>
+                            <option value="4">Leite em pó</option>
+                            <option value="5">Móvel</option>
+                        </select>
+                    </div>
+
+                    <div class="col-md-4 my-3">
+                        <label for="cadastro" class="form-label">Data do cadastro</label>
+                        <input type="date" id="cadastro" name="cadastro" class="form-control" required>
+                    </div>
+
+                    <div class="col-12 my-3">
+                        <label for="descricao" class="form-label">Descrição</label>
+                        <textarea name="descricao" id="descricao" class="form-control"
+                            placeholder="Ex: Lindo macacão para criandas de..." required></textarea>
+                    </div>
+
+                    <div class="col-12 my-3">
+                        <label for="itemTrocar" class="form-label">Gostaria de trocar por</label>
+                        <textarea name="itemTrocar" id="itemTrocar" class="form-control"
+                            placeholder="Ex: Quero trocar por..." required></textarea>
+                    </div>
+
+                    <div class="col-12 my-3 d-flex justify-content-end">
+                        <button type="submit" id="cadastrarTroca" class="btn btn-primary">
+                            Cadastrar Troca >> </button>
+                    </div>
+                </div>
+            </form>
+        </section>
+
+        <!-- Buscar item -->
+        <section class="border rounded-1 p-4 my-5">
+            <h3>Buscar suas trocas</h3>
+
+            <form name="buscar" id="buscar" method="get" action="">
+                <div class="d-flex my-3">
+                    <input type="text" id="buscarItem" name="buscarItem" class="form-control p-3"
+                        placeholder="Quero procurar..." minlength="10" maxlength="20" required>
+                    <button type="submit" id="btnBuscar" name="btnBuscar"
+                        class="btn btn-primary ms-2">Pesquisar</button>
+                </div>
+            </form>
+
+            <h3 class="my-4">Resultado da Busca</h3>
+
+            <div class="table-responsive">
+
+                <table class="table table-striped">
+                    <!-- cabeçalho da tabela -->
+                    <thead class="table-primary">
+                        <tr>
+                            <th>Título da Troca</th>
+                            <th>Tipo do Produto</th>
+                            <th>Data Cadastro</th>
+                            <th>Descrição</th>
+                            <th>Trocar por</th>
+                            <th>Operações do Sistema</th>
+                        </tr>
+                    </thead>
+
+                    <!-- corpo da tabela - dados -->
+                    <tbody>
+                        <tr>
+                            <td>Macacão Azul</td>
+                            <td>Roupa</td>
+                            <td>02/08/2023</td>
+                            <td>Lindo Macacão cor Azul</td>
+                            <td>Brinquedo Novo</td>
+                            <td>
+                                <a href="">Excluir</a>
+                                <a href="">Alterar</a>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td>Macacão Azul</td>
+                            <td>Roupa</td>
+                            <td>02/08/2023</td>
+                            <td>Lindo Macacão cor Azul</td>
+                            <td>Brinquedo Novo</td>
+                            <td>
+                                <a href="">Excluir</a>
+                                <a href="">Alterar</a>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td>Macacão Azul</td>
+                            <td>Roupa</td>
+                            <td>02/08/2023</td>
+                            <td>Lindo Macacão cor Azul</td>
+                            <td>Brinquedo Novo</td>
+                            <td>
+                                <a href="">Excluir</a>
+                                <a href="">Alterar</a>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td>Macacão Azul</td>
+                            <td>Roupa</td>
+                            <td>02/08/2023</td>
+                            <td>Lindo Macacão cor Azul</td>
+                            <td>Brinquedo Novo</td>
+                            <td>
+                                <a href="">Excluir</a>
+                                <a href="">Alterar</a>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+
+
+
+
+
+        </section>
+
+    </main>
+
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous">
+    </script>
+</body>
+
+</html>

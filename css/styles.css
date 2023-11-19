@@ -1,0 +1,48 @@
+
+body {
+    font-family: 'Catamaran', sans-serif;
+}
+
+.navbar a:hover {
+    color: #0B5ED7;
+}
+
+.navbar-toggler {
+    box-shadow: none !important;
+}
+
+.logo {
+    font-size: 30px;
+    color: #0B5ED7;
+    font-weight: 700;
+}
+
+.my-color {
+    color: #dc143c;
+}
+
+.color-orange {
+    color: #ff6600;
+}
+
+.image-login, .img-login {
+    width: 180px;
+}
+
+.foto img {
+    width: 40px;
+}
+
+textarea {
+    resize: none;
+    height: 150px;
+}
+
+.icons a {
+    color: #FFF;
+    transition: .5s
+}
+
+.icons a:hover {
+    color: #90b2e6;
+}
